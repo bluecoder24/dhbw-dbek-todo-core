@@ -3,5 +3,6 @@
  RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
  RewriteRule ^(.*) - [E=BASE:%1]
  RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteBase /dbek/dhbw-dbek-todo-core/public
  RewriteRule ^ index.php [QSA,L]
 </IfModule>
