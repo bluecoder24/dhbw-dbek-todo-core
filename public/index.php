@@ -2,7 +2,12 @@
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
+
 require __DIR__ . '/../vendor/autoload.php';
+require 'rb.php';
+
+R::setup('mysql:host=localhost;dbname=todo', 'root', '');
+
 $app = AppFactory::create();
 $app->setBasePath((function () {
     $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
