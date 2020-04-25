@@ -21,5 +21,27 @@ $args) {
  $response->getBody()->write("Hello world!");
  return $response;
 });
+$app->get('/test', function (Request $request, Response $response,
+$args) {
+ $response->getBody()->write("GET-Test erfolgreich!");
+ return $response;
+});
+$app->post('/test', function (Request $request, Response $response,
+$args) {
+ $response->getBody()->write("POST-Test erfolgreich!");
+ return $response;
+});
+$app->put('/test', function (Request $request, Response $response,
+$args) {
+ $response->getBody()->write("PUT-Test erfolgreich!");
+ return $response;
+});
+$app->delete('/test', function (Request $request, Response $response,
+$args) {
+ $response->getBody()->write("DELETE-Test erfolgreich!");
+ return $response;
+});
+
+
 $app->run();
 ?>
