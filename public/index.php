@@ -47,6 +47,13 @@ $args) {
  return $response;
 });
 
+$app->get('/getUser/{userId}', function (Request $request, Response $response,
+$args) {
+    $response->getBody()->write("getUser - userId: ". $args['userId']);
+    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
+    //oder ohne bei nicht-array
+    return $response;
+});
 
 $app->run();
 ?>
