@@ -4,4 +4,6 @@ The frontend can be found here: https://github.com/NovaNemesis99/DHBW-TODO-WebAp
 
 ## Routes (in work) ##
 
+For the complete API documentation see [docs/routes.md][/docs/routes.md]
+
 - [ ] /getUser/{userId}
