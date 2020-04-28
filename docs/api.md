@@ -22,7 +22,7 @@ If id is null, create new task
 
 #### GET /getListsByUserId/{userId} ####
 
-Response: (# POST-getListsByUserId-body)
+[Response](# POST-getListsByUserId-body)
 
 #### POST /addOrUpdateList ####
 
