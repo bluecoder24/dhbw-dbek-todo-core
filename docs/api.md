@@ -27,7 +27,7 @@ Info: If id is null, create new task
 
 #### GET /getListsByUserId/{userId} ####
 
-[Response](#POST-getListsByUserId-body)
+[Response](#GET-getListsByUserId-body)
 
 #### POST /addOrUpdateList ####
 
@@ -91,7 +91,7 @@ Response: none
 ]
 ```
 
-### POST getListsByUserId body ###
+### GET getListsByUserId body ###
 
 (in work)
 
