@@ -20,7 +20,8 @@ $app->setBasePath((function () {
     }
     return '';
    })());
-   
+
+//Test routes  
 $app->get('/', function (Request $request, Response $response,
 $args) {
  $response->getBody()->write("Hello world!");
@@ -47,6 +48,8 @@ $args) {
  return $response;
 });
 
+
+//Real routes
 $app->get('/getUser/{userId}', function (Request $request, Response $response,
 $args) {
     $response->getBody()->write("getUser - userId: ". $args['userId']);
