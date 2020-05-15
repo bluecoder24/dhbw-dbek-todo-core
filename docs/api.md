@@ -5,13 +5,13 @@
 
 #### GET /getUser/{userId} ####
 
-Response: [Response](#POST-getUser-body)
+[Response](#POST-getUser-body)
 
 ### Task ###
 
 #### GET /getTasksOfList/{listId} ####
 
-Response: (todo)
+[Response](#POST-getTasksOfList-body)
 
 #### GET /getTaskById/{taskId} ####
 
@@ -19,15 +19,15 @@ Response: (todo)
 
 #### POST /addOrUpdateTask ####
 
-Body: (todo)
+[Body](#POST-addOrUpdateTask-body)
 Response: none
-If id is null, create new task
+Info: If id is null, create new task
 
 ### Tasklist ###
 
 #### GET /getListsByUserId/{userId} ####
 
-Response: [Response](#POST-getListsByUserId-body)
+[Response](#POST-getListsByUserId-body)
 
 #### POST /addOrUpdateList ####
 
@@ -42,6 +42,16 @@ Response: none
 {
    "id": id,
    "name": name,
+}
+```
+
+### POST addOrUpdateTask body ###
+
+(in work)
+
+```json
+{
+   "task"
 }
 ```
 
@@ -81,10 +91,15 @@ Response: none
 
 ### GET getTasksOfList body ###
 
+(in work)
+
 ```json
-{
-   "id": id,
-   "name": name,
-   "password": password
-}
+[
+    {
+        "task"
+    },
+    {
+        "task"
+    }
+]
 ```
