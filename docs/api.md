@@ -5,7 +5,7 @@
 
 #### GET /getUser/{userId} ####
 
-[Response](#POST-getUser-body)
+[Response](#GET-getUser-body)
 
 ### Task ###
 
@@ -31,7 +31,7 @@ Info: If id is null, create new task
 
 #### POST /addOrUpdateList ####
 
-Body: [Response](#POST-addOrUpdateList-body)
+[Body](#POST-addOrUpdateList-body)
 Response: none
 
 ## Request bodies ##
