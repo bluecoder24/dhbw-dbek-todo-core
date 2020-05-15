@@ -11,11 +11,11 @@
 
 #### GET /getTasksOfList/{listId} ####
 
-[Response](#POST-getTasksOfList-body)
+[Response](#GET-getTasksOfList-body)
 
 #### GET /getTaskById/{taskId} ####
 
-Response: (todo)
+[Response](#GET-getTaskById-body)
 
 #### POST /addOrUpdateTask ####
 
@@ -102,4 +102,13 @@ Response: none
         "task"
     }
 ]
+```
+
+### GET getTaskById body ###
+(in work)
+
+```json
+{
+    "task"
+}
 ```
