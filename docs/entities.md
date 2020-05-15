@@ -6,7 +6,7 @@ id, name, password
 
 ## Task ##
 
-id, name, description, weight, duedate, state
+id, name, description, weight, duedate, state, creator
 
 ## Tasklist ##
 
