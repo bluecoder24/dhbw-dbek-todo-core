@@ -36,15 +36,6 @@ Response: none
 
 ## Request bodies ##
 
-### POST addOrUpdateList body ###
-
-```json
-{
-   "id": id,
-   "name": name,
-}
-```
-
 ### POST addOrUpdateTask body ###
 
 (in work)
@@ -55,7 +46,50 @@ Response: none
 }
 ```
 
+### POST addOrUpdateList body ###
+
+```json
+{
+   "id": id,
+   "name": name,
+}
+```
+
 ## Response bodies ##
+
+### GET getUser body ###
+
+```json
+{
+   "id": id,
+   "name": name,
+   "password": password
+}
+```
+
+### GET getTaskById body ###
+(in work)
+
+```json
+{
+    "task"
+}
+```
+
+### GET getTasksOfList body ###
+
+(in work)
+
+```json
+[
+    {
+        "task"
+    },
+    {
+        "task"
+    }
+]
+```
 
 ### POST getListsByUserId body ###
 
@@ -77,38 +111,4 @@ Response: none
         ]
     }
 ]
-```
-
-### GET getUser body ###
-
-```json
-{
-   "id": id,
-   "name": name,
-   "password": password
-}
-```
-
-### GET getTasksOfList body ###
-
-(in work)
-
-```json
-[
-    {
-        "task"
-    },
-    {
-        "task"
-    }
-]
-```
-
-### GET getTaskById body ###
-(in work)
-
-```json
-{
-    "task"
-}
 ```
