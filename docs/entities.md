@@ -6,7 +6,7 @@ id, name, password
 
 ## Task ##
 
-(todo)
+id, name, description, weight, duedate, state
 
 ## Tasklist ##
 
