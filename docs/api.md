@@ -19,8 +19,8 @@
 
 #### POST /addOrUpdateTask ####
 
-[Body](#POST-addOrUpdateTask-body)
-Response: none
+[Body](#POST-addOrUpdateTask-body)\
+Response: none\
 Info: If id is null, create new task
 
 ### Tasklist ###
@@ -31,7 +31,7 @@ Info: If id is null, create new task
 
 #### POST /addOrUpdateList ####
 
-[Body](#POST-addOrUpdateList-body)
+[Body](#POST-addOrUpdateList-body)\
 Response: none
 
 ## Request bodies ##
