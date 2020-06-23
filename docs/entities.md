@@ -2,8 +2,8 @@
 
 ## Task ##
 
-id, name, description, dueDate, description, weight, state
+id: int, name: string, dueDate: string, description: string, weight: int (1-5), state: int (0-3)
 
 ## Tasklist ##
 
-id, name, tasks
+id: int, name: string, tasks: list&lt;Task&gt;
