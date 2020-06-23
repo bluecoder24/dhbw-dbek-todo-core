@@ -28,64 +28,41 @@ require 'rb.php';
 // Benutzer von bplaced müssen drei der Parameter hier anpassen! Lediglich der 
 // Servername (localhost) kann übernommen werden!
 
-R::setup('mysql:host=localhost;dbname=dhbwvs20_rzptvw', 'dhbwvs20_dbuser1', 'dbuser1pwd');
-
-  
-
-
-
-// ### Neue Person anlegen ... ###
-$koch = R::dispense('person');    //Achtung Namenskonvention: Beans (hier: person) müssen komplett klein geschrieben werden
-
-// ...und die gewünschten Eigenschaften hinzufügen
-
-$koch->name = "Alfred";
-$koch->kennwort = "12345";
-$koch->ranking = "Anfänger";
+R::setup('mysql:host=localhost;dbname=todo', 'root', '');
 
 
 // ### Neues Rezept anlegen ... ###
 	
-$rezept = R::dispense('rezept');    //Achtung Namenskonvention: Beans (hier: rezept) müssen komplett klein geschrieben werden
+$list = R::dispense('list');    //Achtung Namenskonvention: Beans (hier: list) müssen komplett klein geschrieben werden
 
 // ...und die gewünschten Eigenschaften hinzufügen
 
-$rezept->name = "American Pizza";
-$rezept->schwierigkeit = "leicht";
-$rezept->zubereitungszeit = 110;      //in Minuten
-$rezept->zubereitung = "Backofen gut vorheizen (250 Grad, sollte der Backofen mehr hergeben ruhig noch höher)...";
-
-
+$list->name = "Aufgaben";
 
 
 // ### Neue Zutat anlegen ... ###
 
-$zutat = R::dispense('zutat');    //Achtung Namenskonvention: Beans (hier: zutat) müssen komplett klein geschrieben werden
+$task = R::dispense('task');    //Achtung Namenskonvention: Beans (hier: task) müssen komplett klein geschrieben werden
 
 // ...und die gewünschten Eigenschaften hinzufügen
 
-$zutat->name = "Mehl";
-$zutat->menge = 1.1;
-$zutat->einheit = "g";
+$task->name = "Blumen giessen";
+$task->duedate = "23.06.2020";
+$task->description = "gut wässern";
+$task->weight = 3;
+$task->state = 0;
 
 
 
+// ### Task dem list zuordnen (1:n) ###
 
-// ### Zutat dem Rezept zuordnen (1:n) ###
-
-$rezept->xownZutatList[] = $zutat;
-
-
-// ### Person dem Rezept zuordnen (1:1) ###
-
-$rezept->person = $koch;
+$list->xownTaskList[] = $task;
 
 
 
+// ...list inkl. Person und Zutat speichern
 
-// ...Rezept inkl. Person und Zutat speichern
-
-$id = R::store($rezept);   // RedBean untersucht die erstellten Beans und erstellt, falls noch nicht vorhanden
+$id = R::store($list);   // RedBean untersucht die erstellten Beans und erstellt, falls noch nicht vorhanden
                            // für jedes Bean eine eigene Tabelle. Die Spalten der Tabelen werden durch die
                            // Eigenschaften der Beans festgelegt. Typen werden dabei automatisch erkannt.
 
@@ -93,18 +70,10 @@ $id = R::store($rezept);   // RedBean untersucht die erstellten Beans und erstel
 
 
 
-
-
-
-// ### Zur Kontrolle wird das eben angelegte Rezept geladen und inklusiv aller verknüpften Daten ausgegeben ###
-
-
-
-
-$rezept = R::load('rezept', $id);     // In der Tabelle 'rezept' wird nach dem Datensatz mit der 'id' $id gesucht.
+//$rezept = R::load('rezept', $id);     // In der Tabelle 'rezept' wird nach dem Datensatz mit der 'id' $id gesucht.
 
 //Ausgabe der Rezeptdaten
-
+/*
 echo "<h3>Rezeptdaten</h3>";
 echo "Rezeptname: " . $rezept->name . "<br>";
 echo "Schwierigkeit: " . $rezept->schwierigkeit . "<br>";
@@ -129,7 +98,7 @@ foreach($rezept->xownZutatList as $z) {
     echo "Menge: " . $z->menge . "<br>";
     echo "&nbsp;<br>";
 }
-	
+*/	
 
 
 
