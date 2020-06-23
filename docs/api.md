@@ -1,21 +1,15 @@
 # API
 ## Routes
 
-### User ###
-
-#### GET /getUser/{userId} ####
-
-[Response](#GET-getUser-body)
-
 ### Task ###
 
 #### GET /getTasksOfList/{listId} ####
 
 [Response](#GET-getTasksOfList-body)
 
-#### GET /getTaskById/{taskId} ####
+#### GET /getTask/{taskId} ####
 
-[Response](#GET-getTaskById-body)
+[Response](#GET-getTask-body)
 
 #### POST /addOrUpdateTask ####
 
@@ -25,9 +19,9 @@ Info: If id is null, create new task
 
 ### Tasklist ###
 
-#### GET /getListsByUserId/{userId} ####
+#### GET /getAllLists ####
 
-[Response](#GET-getListsByUserId-body)
+[Response](#GET-getAllLists-body)
 
 #### POST /addOrUpdateList ####
 
@@ -42,7 +36,12 @@ Response: none
 
 ```json
 {
-   "task"
+   "id":"id",
+    "name":"name",
+    "duedate":"duedate",
+    "description":"description",
+    "weight":"weight",
+    "state":"state"
 }
 ```
 
@@ -50,29 +49,23 @@ Response: none
 
 ```json
 {
-   "id": id,
-   "name": name,
+   "id": "id",
+   "name": "name",
 }
 ```
 
 ## Response bodies ##
 
-### GET getUser body ###
+### GET getTask body ###
 
 ```json
 {
-   "id": id,
-   "name": name,
-   "password": password
-}
-```
-
-### GET getTaskById body ###
-(in work)
-
-```json
-{
-    "task"
+    "id":"id",
+    "name":"name",
+    "duedate":"duedate",
+    "description":"description",
+    "weight":"weight",
+    "state":"state"
 }
 ```
 
@@ -83,31 +76,49 @@ Response: none
 ```json
 [
     {
-        "task"
+        "id":"id",
+        "name":"name",
+        "duedate":"duedate",
+        "description":"description",
+        "weight":"weight",
+        "state":"state"
     },
     {
-        "task"
+        "id":"id",
+        "name":"name",
+        "duedate":"duedate",
+        "description":"description",
+        "weight":"weight",
+        "state":"state"
     }
 ]
 ```
 
-### GET getListsByUserId body ###
-
-(in work)
+### GET getAllLists body ###
 
 ```json
 [
     {
+        "id":"id",
+        "name":"name",
         "tasks":
         [
-            { "task" },
-            { "task" }
+            { 
+                "[task](#GET-getTask-body)" 
+            },
+            { 
+                "[task](#GET-getTask-body)" 
+            }
         ]
     },
     {
+        "id":"id",
+        "name":"name",
         "tasks":
         [
-            {"task" }
+            { 
+                "[task](#GET-getTask-body)" 
+            }
         ]
     }
 ]
