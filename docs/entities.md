@@ -1,12 +1,8 @@
 # Entities
 
-## User ##
-
-id, name, password
-
 ## Task ##
 
-id, name, description, weight, duedate, state, creator
+id, name, description, dueDate, description, weight, state
 
 ## Tasklist ##
 
