@@ -17,7 +17,7 @@
 Response: none\
 Info: If id is null, create new task
 
-### Tasklist ###
+### List ###
 
 #### GET /getList/{listId} ####
 
