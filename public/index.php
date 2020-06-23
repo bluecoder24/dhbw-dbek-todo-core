@@ -7,6 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 require 'rb.php';
 
 R::setup('mysql:host=localhost;dbname=todo', 'root', '');
+//R::freeze(true); 
 
 $app = AppFactory::create();
 $app->setBasePath((function () {
