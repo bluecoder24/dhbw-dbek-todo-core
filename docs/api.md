@@ -19,6 +19,10 @@ Info: If id is null, create new task
 
 ### Tasklist ###
 
+#### GET /getList/{listId} ####
+
+[Response](#GET-getList-body)
+
 #### GET /getAllLists ####
 
 [Response](#GET-getAllLists-body)
@@ -28,11 +32,13 @@ Info: If id is null, create new task
 [Body](#POST-addOrUpdateList-body)\
 Response: none
 
+#### DELETE /deleteList/{listId} ####
+
+Response: none
+
 ## Request bodies ##
 
 ### POST addOrUpdateTask body ###
-
-(in work)
 
 ```json
 {
@@ -92,6 +98,24 @@ Response: none
         "state":"state"
     }
 ]
+```
+
+### GET getList body ###
+
+```json
+    {
+        "id":"id",
+        "name":"name",
+        "tasks":
+        [
+            { 
+                "[task](#GET-getTask-body)" 
+            },
+            { 
+                "[task](#GET-getTask-body)" 
+            }
+        ]
+    }
 ```
 
 ### GET getAllLists body ###
