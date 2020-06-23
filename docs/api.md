@@ -107,10 +107,10 @@ Response: none
         "tasks":
         [
             { 
-                "[task](#GET-getTask-body)" 
+                "task" 
             },
             { 
-                "[task](#GET-getTask-body)" 
+                "task" 
             }
         ]
     }
@@ -126,10 +126,10 @@ Response: none
         "tasks":
         [
             { 
-                "[task](#GET-getTask-body)" 
+                "task" 
             },
             { 
-                "[task](#GET-getTask-body)" 
+                "task" 
             }
         ]
     },
@@ -139,7 +139,7 @@ Response: none
         "tasks":
         [
             { 
-                "[task](#GET-getTask-body)" 
+                "task" 
             }
         ]
     }
