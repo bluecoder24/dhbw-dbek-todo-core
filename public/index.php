@@ -21,7 +21,7 @@ $app->setBasePath((function () {
     return '';
    })());
 
-//Test routes  
+//Test routes - to be removed
 $app->get('/', function (Request $request, Response $response,
 $args) {
  $response->getBody()->write("Hello world!");
@@ -50,12 +50,58 @@ $args) {
 
 
 //Real routes
-$app->get('/getUser/{userId}', function (Request $request, Response $response,
+$app->get('/getTask/{taskId}', function (Request $request, Response $response,
 $args) {
-    $response->getBody()->write("getUser - userId: ". $args['userId']);
+    $response->getBody()->write("getTask - taskId: ". $args['taskId']);
     //$response->getBody()->write(json_encode(R::exportAll($rezept)));
     //oder ohne bei nicht-array
     return $response;
+});
+
+$app->get('/getTasksOfList/{listId}', function (Request $request, Response $response,
+$args) {
+    $response->getBody()->write("getTasksOfList - listId: ". $args['listId']);
+    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
+    //oder ohne bei nicht-array
+    return $response;
+});
+
+$app->post('/addOrUpdateTask', function (Request $request, Response $response,
+$args) {
+ $addOrUpdateTask = json_decode($request->getBody());
+ //do Stuff
+ $response->getBody()->write($addOrUpdateTask);
+ return $response;
+});
+
+$app->get('/getList/{listId}', function (Request $request, Response $response,
+$args) {
+    $response->getBody()->write("getList - listId: ". $args['listId']);
+    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
+    //oder ohne bei nicht-array
+    return $response;
+});
+
+$app->get('/getAllLists', function (Request $request, Response $response,
+$args) {
+    $response->getBody()->write("getAllLists");
+    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
+    //oder ohne bei nicht-array
+    return $response;
+});
+
+$app->post('/addOrUpdateList', function (Request $request, Response $response,
+$args) {
+ $addOrUpdateList = json_decode($request->getBody());
+ //do Stuff
+ $response->getBody()->write($addOrUpdateList);
+ return $response;
+});
+
+$app->delete('/deleteList/{listId}', function (Request $request, Response $response,
+$args) {
+ $response->getBody()->write("deleteList - listId: ". $args['listId']);
+ return $response;
 });
 
 $app->run();
