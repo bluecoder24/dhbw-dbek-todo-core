@@ -77,8 +77,6 @@ Response: none
 
 ### GET getTasksOfList body ###
 
-(in work)
-
 ```json
 [
     {
