@@ -3,13 +3,13 @@
 
 ### Task ###
 
-#### GET /getTasksOfList/{listId} ####
-
-[Response](#GET-getTasksOfList-body)
-
 #### GET /getTask/{taskId} ####
 
 [Response](#GET-getTask-body)
+
+#### GET /getTasksOfList/{listId} ####
+
+[Response](#GET-getTasksOfList-body)
 
 #### POST /addOrUpdateTask ####
 
