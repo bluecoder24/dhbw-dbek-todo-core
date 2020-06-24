@@ -77,9 +77,11 @@ $args) {
 
 $app->get('/getList/{listId}', function (Request $request, Response $response,
 $args) {
-    $response->getBody()->write("getList - listId: ". $args['listId']);
-    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
-    //oder ohne bei nicht-array
+    $list = R::load('list', $args['listId']);
+    $list->name;
+    $first = reset( $list->ownTaskList );
+    $last = end( $list->ownTaskList );
+    $response->getBody()->write(json_encode($list));
     return $response;
 });
 
