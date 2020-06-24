@@ -12,4 +12,4 @@ For the complete API documentation see [api.md](./docs/api.md), for data structu
 - [X] /getList/{listId}
 - [X] /getAllLists
 - [ ] /addOrUpdateList/{listId}
-- [ ] /deleteList/{listId}
+- [x] /deleteList/{listId}
