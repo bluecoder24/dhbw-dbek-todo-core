@@ -53,9 +53,8 @@ $args) {
 //Real routes
 $app->get('/getTask/{taskId}', function (Request $request, Response $response,
 $args) {
-    $response->getBody()->write("getTask - taskId: ". $args['taskId']);
-    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
-    //oder ohne bei nicht-array
+    $task = R::load('task', $args['taskId']);
+    $response->getBody()->write(json_encode($task));
     return $response;
 });
 
@@ -87,9 +86,8 @@ $args) {
 
 $app->get('/getAllLists', function (Request $request, Response $response,
 $args) {
-    $response->getBody()->write("getAllLists");
-    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
-    //oder ohne bei nicht-array
+    $lists = R::findAll('list');
+    $response->getBody()->write(json_encode(R::exportAll($lists)));
     return $response;
 });
 

@@ -6,10 +6,10 @@ The frontend can be found here: https://github.com/NovaNemesis99/DHBW-TODO-WebAp
 
 For the complete API documentation see [api.md](./docs/api.md), for data structure documentation see [entities.md](./docs/entities.md).
 
-- [ ] /getTask/{taskId}
+- [X] /getTask/{taskId}
 - [ ] /getTasksOfList/{listId}
 - [ ] /addOrUpdateTask
 - [X] /getList/{listId}
-- [ ] /getAllLists
+- [X] /getAllLists
 - [ ] /addOrUpdateList/{listId}
 - [ ] /deleteList/{listId}
