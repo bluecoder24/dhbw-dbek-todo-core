@@ -101,8 +101,9 @@ $args) {
 
 $app->delete('/deleteList/{listId}', function (Request $request, Response $response,
 $args) {
- $response->getBody()->write("deleteList - listId: ". $args['listId']);
- return $response;
+    $list = R::load('list', $args['listId']);
+    R::trash($list);
+    return $response;
 });
 
 $app->run();
