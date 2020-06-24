@@ -60,9 +60,8 @@ $args) {
 
 $app->get('/getTasksOfList/{listId}', function (Request $request, Response $response,
 $args) {
-    $response->getBody()->write("getTasksOfList - listId: ". $args['listId']);
-    //$response->getBody()->write(json_encode(R::exportAll($rezept)));
-    //oder ohne bei nicht-array
+    $tasks = R::findAll('task', 'list_id = '.$args['listId'].'');
+    $response->getBody()->write(json_encode(R::exportAll($tasks)));
     return $response;
 });
 
