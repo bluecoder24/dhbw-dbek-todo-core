@@ -4,75 +4,85 @@
 // anzulegen. Die Datei muss daher nur einmal ausgefürt werden. Anschließend sind
 // alle notwendigen Tabellen angelegt und mit Beispieldaten belegt.
 
-
-// Folgende Informationen sind bekannt:
-// 
-// Datenbankserver:   localhost
-// Datenbankname:     dhbwvs20_rzptvw
-// Datenbankuser:     dhbwvs20_dbuser1 
-// Datenbankkennwort: dbuser1pwd
-
-
-// Einbinden der RedBean-Funktionalität. Die Datei 'rb.php' befindet sich im 
-// gleichen Verzeichnis, wie diese Datei. Ab jetzt steht die Klasse R zur Verfügung!
-
 require 'rb.php';
-
-
-// Die Methode statische 'setup' der Klasse R ermöglicht den Aufbau einer Verbindung
-// zur Datenbank. In der ersten Zeichenkette ist der Name der Servers, auf welchem
-// das DBMS läuft (localhost) und der Name der Datenbank kodiert (bundesliga).
-// Die beiden weiteren Parameter legen den Namen und das Kennwort des DB-Benutzers
-// fest.
-//
-// Benutzer von bplaced müssen drei der Parameter hier anpassen! Lediglich der 
-// Servername (localhost) kann übernommen werden!
 
 R::setup('mysql:host=localhost;dbname=todo', 'root', '');
 
 
-// ### Neues Rezept anlegen ... ###
+// ### Zwei neue Aufgabenlisten anlegen ###
 	
-$list = R::dispense('list');    //Achtung Namenskonvention: Beans (hier: list) müssen komplett klein geschrieben werden
+$list = R::dispense('list'); 
+$list2 = R::dispense('list'); 
 
 // ...und die gewünschten Eigenschaften hinzufügen
 
-$list->name = "Aufgaben";
+$list->name = "Aufgaben Büro";
+$list2->name = "Aufgaben Zuhause";
 
 
-// ### Neue Zutat anlegen ... ###
+// ### Neue Aufgaben anlegen ... ###
 
-$task = R::dispense('task');    //Achtung Namenskonvention: Beans (hier: task) müssen komplett klein geschrieben werden
+$taskBuero1 = R::dispense('task');
+$taskBuero1->name = "Blumen giessen";
+$taskBuero1->duedate = "26.06.2020";
+$taskBuero1->description = "gut wässern";
+$taskBuero1->weight = 3;
+$taskBuero1->state = 0;
 
-// ...und die gewünschten Eigenschaften hinzufügen
+$taskBuero2 = R::dispense('task');
+$taskBuero2->name = "Defekter Monitor austauschen";
+$taskBuero2->duedate = "03.07.2020";
+$taskBuero2->description = "Adapter nicht wegwerfen!";
+$taskBuero2->weight = 4;
+$taskBuero2->state = 0;
 
-$task->name = "Blumen giessen";
-$task->duedate = "23.06.2020";
-$task->description = "gut wässern";
-$task->weight = 3;
-$task->state = 0;
+$taskBuero3 = R::dispense('task');
+$taskBuero3->name = "Bericht für Chef fertigstellen";
+$taskBuero3->duedate = "26.06.2020";
+$taskBuero3->description = "Diagramme nicht vergessen";
+$taskBuero3->weight = 5;
+$taskBuero3->state = 1;
 
+$taskZuhause1 = R::dispense('task');
+$taskZuhause1->name = "Fenster putzen";
+$taskZuhause1->duedate = "26.06.2020";
+$taskZuhause1->description = "";
+$taskZuhause1->weight = 3;
+$taskZuhause1->state = 0;
 
+$taskZuhause2 = R::dispense('task');
+$taskZuhause2->name = "Auto putzen";
+$taskZuhause2->duedate = "04.07.2020";
+$taskZuhause2->description = "";
+$taskZuhause2->weight = 1;
+$taskZuhause2->state = 0;
 
-// ### Task dem list zuordnen (1:n) ###
+$taskZuhause3 = R::dispense('task');
+$taskZuhause3->name = "Garten umgraben";
+$taskZuhause3->duedate = "04.07.2020";
+$taskZuhause3->description = "Beet im Garten umgraben";
+$taskZuhause3->weight = 5;
+$taskZuhause3->state = 0;
 
-$list->xownTaskList[] = $task;
+// ### Tasks den Listen zuordnen (1:n) ###
 
+$list->xownTaskList[] = $taskBuero1;
+$list->xownTaskList[] = $taskBuero2;
+$list->xownTaskList[] = $taskBuero3;
 
+$list2->xownTaskList[] = $taskZuhause1;
+$list2->xownTaskList[] = $taskZuhause2;
+$list2->xownTaskList[] = $taskZuhause3;
 
-// ...list inkl. Person und Zutat speichern
+// Aufgabenliste speichern
 
-$id = R::store($list);   // RedBean untersucht die erstellten Beans und erstellt, falls noch nicht vorhanden
-                           // für jedes Bean eine eigene Tabelle. Die Spalten der Tabelen werden durch die
-                           // Eigenschaften der Beans festgelegt. Typen werden dabei automatisch erkannt.
+$id = R::store($list);   
+$id = R::store($list2);                   
 
-
-
-
+//Ausgabe der erstellten Daten (to do)
 
 //$rezept = R::load('rezept', $id);     // In der Tabelle 'rezept' wird nach dem Datensatz mit der 'id' $id gesucht.
 
-//Ausgabe der Rezeptdaten
 /*
 echo "<h3>Rezeptdaten</h3>";
 echo "Rezeptname: " . $rezept->name . "<br>";
@@ -99,11 +109,6 @@ foreach($rezept->xownZutatList as $z) {
     echo "&nbsp;<br>";
 }
 */	
-
-
-
-// Spätestens am Ende des Programms sollte die Verbindung zum DBMS wieder geschlossen
-// werden. Dazu steht die Methode "close()" bereit.
 
 R::close();
 
