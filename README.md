@@ -11,5 +11,5 @@ For the complete API documentation see [api.md](./docs/api.md), for data structu
 - [ ] /addOrUpdateTask
 - [X] /getList/{listId}
 - [X] /getAllLists
-- [ ] /addOrUpdateList/{listId}
+- [X] /addOrUpdateList/{listId}
 - [x] /deleteList/{listId}
