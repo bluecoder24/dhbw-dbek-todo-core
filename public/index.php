@@ -67,10 +67,34 @@ $args) {
 
 $app->post('/addOrUpdateTask', function (Request $request, Response $response,
 $args) {
- $addOrUpdateTask = json_decode($request->getBody());
- //do Stuff
- $response->getBody()->write($addOrUpdateTask);
- return $response;
+    $parsedBody = json_decode($request->getBody());
+    if(!isset($parsedBody->id))
+    {
+        $task = R::dispense('task');
+        $task->name = (string)$parsedBody->name;
+        $task->duedate = (string)$parsedBody->duedate;
+        $task->description = (string)$parsedBody->description;
+        $task->weight = (int)$parsedBody->weight;
+        $task->state = (int)$parsedBody->state;
+
+        $list = R::load('list', $parsedBody->list_id);
+        $list->xownTaskList[] = $task;
+
+        R::store($list);
+    }
+    else
+    {
+        $task = R::load('task', (int)$parsedBody->id);
+        $task->name = (string)$parsedBody->name;
+        $task->duedate = (string)$parsedBody->duedate;
+        $task->description = (string)$parsedBody->description;
+        $task->weight = (int)$parsedBody->weight;
+        $task->state = (int)$parsedBody->state;
+        R::store($task);
+    }
+    
+    $response->getBody()->write(json_encode($task));
+    return $response;
 });
 
 $app->get('/getList/{listId}', function (Request $request, Response $response,
