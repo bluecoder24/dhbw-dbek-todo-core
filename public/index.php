@@ -6,7 +6,7 @@ use Slim\Factory\AppFactory;
 require __DIR__ . '/../vendor/autoload.php';
 require 'rb.php';
 
-R::setup('mysql:host=localhost;dbname=todo', 'root', '');
+R::setup('mysql:host=localhost;dbname=todo;charset=utf8', 'root', '');
 //R::freeze(true); 
 
 $app = AppFactory::create();
