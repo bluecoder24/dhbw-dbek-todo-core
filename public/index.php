@@ -93,10 +93,20 @@ $args) {
 
 $app->post('/addOrUpdateList', function (Request $request, Response $response,
 $args) {
- $addOrUpdateList = json_decode($request->getBody());
- //do Stuff
- $response->getBody()->write($addOrUpdateList);
- return $response;
+    $parsedBody = json_decode($request->getBody());
+    if(!isset($parsedBody->id))
+    {
+        $list = R::dispense('list');
+        $list->name = (string)$parsedBody->name;
+    }
+    else
+    {
+        $list = R::load('list', (int)$parsedBody->id);
+        $list->name = (string)$parsedBody->name;
+    }
+    R::store($list);
+    $response->getBody()->write(json_encode($list));
+    return $response;
 });
 
 $app->delete('/deleteList/{listId}', function (Request $request, Response $response,
