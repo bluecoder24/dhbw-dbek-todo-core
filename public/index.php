@@ -6,7 +6,7 @@ use Slim\Factory\AppFactory;
 require __DIR__ . '/../vendor/autoload.php';
 require 'rb.php';
 
-R::setup('mysql:host=localhost;dbname=todo', 'root', '');
+R::setup('mysql:host=localhost;dbname=todo;charset=utf8mb4', 'root', '');
 //R::freeze(true); 
 
 $app = AppFactory::create();
@@ -54,14 +54,15 @@ $args) {
 $app->get('/getTask/{taskId}', function (Request $request, Response $response,
 $args) {
     $task = R::load('task', $args['taskId']);
-    $response->getBody()->write(json_encode($task));
+    $response->getBody()->write(json_encode($task, JSON_UNESCAPED_UNICODE));
     return $response;
 });
 
 $app->get('/getTasksOfList/{listId}', function (Request $request, Response $response,
 $args) {
     $tasks = R::findAll('task', 'list_id = '.$args['listId'].'');
-    $response->getBody()->write(json_encode(R::exportAll($tasks)));
+    $response->getBody()->write(json_encode(R::exportAll($tasks), JSON_UNESCAPED_UNICODE));
+    
     return $response;
 });
 
@@ -93,7 +94,7 @@ $args) {
         R::store($task);
     }
     
-    $response->getBody()->write(json_encode($task));
+    $response->getBody()->write(json_encode($task, JSON_UNESCAPED_UNICODE));
     return $response;
 });
 
@@ -103,14 +104,14 @@ $args) {
     $list->name;
     $first = reset( $list->ownTaskList );
     $last = end( $list->ownTaskList );
-    $response->getBody()->write(json_encode($list));
+    $response->getBody()->write(json_encode($list, JSON_UNESCAPED_UNICODE));
     return $response;
 });
 
 $app->get('/getAllLists', function (Request $request, Response $response,
 $args) {
     $lists = R::findAll('list');
-    $response->getBody()->write(json_encode(R::exportAll($lists)));
+    $response->getBody()->write(json_encode(R::exportAll($lists), JSON_UNESCAPED_UNICODE));
     return $response;
 });
 
@@ -128,7 +129,7 @@ $args) {
         $list->name = (string)$parsedBody->name;
     }
     R::store($list);
-    $response->getBody()->write(json_encode($list));
+    $response->getBody()->write(json_encode($list, JSON_UNESCAPED_UNICODE));
     return $response;
 });
 

@@ -6,7 +6,7 @@
 
 require 'rb.php';
 
-R::setup('mysql:host=localhost;dbname=todo', 'root', '');
+R::setup('mysql:host=localhost;dbname=todo;charset=utf8', 'root', '');
 
 
 // ### Zwei neue Aufgabenlisten anlegen ###
