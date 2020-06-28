@@ -81,6 +81,8 @@ $id = R::store($list2);
 
 //Ausgabe der erstellten Daten (to do)
 
+echo "Beispieldaten wurden der Datenbank hinzugefügt!";
+
 //$rezept = R::load('rezept', $id);     // In der Tabelle 'rezept' wird nach dem Datensatz mit der 'id' $id gesucht.
 
 /*
