@@ -98,6 +98,13 @@ $args) {
     return $response;
 });
 
+$app->delete('/deleteTask/{taskId}', function (Request $request, Response $response,
+$args) {
+    $task = R::load('task', $args['taskId']);
+    R::trash($task);
+    return $response;
+});
+
 $app->get('/getList/{listId}', function (Request $request, Response $response,
 $args) {
     $list = R::load('list', $args['listId']);

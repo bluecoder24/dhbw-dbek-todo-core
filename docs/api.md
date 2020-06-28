@@ -17,6 +17,10 @@
 Response: none\
 Info: If id is null, create new task
 
+#### DELETE /deleteTask/{taskId} ####
+
+Response: none
+
 ### List ###
 
 #### GET /getList/{listId} ####
