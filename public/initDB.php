@@ -113,3 +113,6 @@ foreach($rezept->xownZutatList as $z) {
 R::close();
 
 ?>
+<script>
+     window.close();
+</script>
