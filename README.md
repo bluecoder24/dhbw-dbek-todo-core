@@ -9,6 +9,7 @@ For the complete API documentation see [api.md](./docs/api.md), for data structu
 - [X] /getTask/{taskId}
 - [X] /getTasksOfList/{listId}
 - [X] /addOrUpdateTask
+- [x] /deleteTask/{taskId}
 - [X] /getList/{listId}
 - [X] /getAllLists
 - [X] /addOrUpdateList
