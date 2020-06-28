@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
  Header set Access-Control-Allow-Origin *
  Header set Access-Control-Allow-Headers *
- Header set Access-Control-Allow-Methods: POST, GET, DELETE, OPTIONS
+ Header set Access-Control-Allow-Methods *
  RewriteEngine On
  RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
  RewriteRule ^(.*) - [E=BASE:%1]
