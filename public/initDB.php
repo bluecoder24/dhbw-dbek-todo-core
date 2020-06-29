@@ -77,40 +77,28 @@ $list2->xownTaskList[] = $taskZuhause3;
 // Aufgabenliste speichern
 
 $id = R::store($list);   
-$id = R::store($list2);                   
+$id2 = R::store($list2);                   
 
 //Ausgabe der erstellten Daten (to do)
 
-echo "Beispieldaten wurden der Datenbank hinzugefügt!";
+echo "Folgende Beispieldaten wurden der Datenbank hinzugefügt:<br>";
 
-//$rezept = R::load('rezept', $id);     // In der Tabelle 'rezept' wird nach dem Datensatz mit der 'id' $id gesucht.
+$lists = R::findAll('list');
 
-/*
-echo "<h3>Rezeptdaten</h3>";
-echo "Rezeptname: " . $rezept->name . "<br>";
-echo "Schwierigkeit: " . $rezept->schwierigkeit . "<br>";
-echo "Zubereitungszeit: " . $rezept->zubereitungszeit . "<br>";
-echo "Zubereitung: " . $rezept->zubereitung . "<br>";
-
-echo "--------------";
-
-echo "<h3>Person</h3>";
-$koch = $rezept->person;
-echo "Name: " . $koch->name . "<br>";
-echo "Kennwort: " . $koch->kennwort . "<br>";
-echo "Ranking: " . $koch->ranking . "<br>";
-echo "&nbsp;<br>";
-
-echo "--------------";
-
-echo "<h3>Zutaten</h3>";
-foreach($rezept->xownZutatList as $z) {
-    echo "Name: " . $z->name . "<br>";
-    echo "Einheit: " . $z->einheit . "<br>";
-    echo "Menge: " . $z->menge . "<br>";
-    echo "&nbsp;<br>";
+foreach($lists as $list)
+{
+    echo "<h3>".$list->name."</h3>";
+    foreach($list->xownTaskList as $task) 
+    {
+        echo "Id: " . $task->id . "<br>";
+        echo "Name: " . $task->name . "<br>";
+        echo "Fälligkeitsdatum: " . $task->duedate . "<br>";
+        echo "Beschreibung: " . $task->description . "<br>";
+        echo "Wichtigkeit: " . $task->weight . "<br>";
+        echo "Status: " . $task->state . "<br>";
+        echo "&nbsp;<br>";
+    }
 }
-*/	
 
 R::close();
 
