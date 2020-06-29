@@ -24,42 +24,42 @@ $list2->name = "Aufgaben Zuhause";
 
 $taskBuero1 = R::dispense('task');
 $taskBuero1->name = "Blumen giessen";
-$taskBuero1->duedate = "26.06.2020";
+$taskBuero1->duedate = "2020-06-29T22:00:00.000Z";
 $taskBuero1->description = "gut wässern";
 $taskBuero1->weight = 3;
 $taskBuero1->state = 0;
 
 $taskBuero2 = R::dispense('task');
 $taskBuero2->name = "Defekter Monitor austauschen";
-$taskBuero2->duedate = "03.07.2020";
+$taskBuero2->duedate = "2020-06-29T22:00:00.000Z";
 $taskBuero2->description = "Adapter nicht wegwerfen!";
 $taskBuero2->weight = 4;
 $taskBuero2->state = 0;
 
 $taskBuero3 = R::dispense('task');
 $taskBuero3->name = "Bericht für Chef fertigstellen";
-$taskBuero3->duedate = "26.06.2020";
+$taskBuero3->duedate = "2020-06-30T22:00:00.000Z";
 $taskBuero3->description = "Diagramme nicht vergessen";
 $taskBuero3->weight = 5;
 $taskBuero3->state = 1;
 
 $taskZuhause1 = R::dispense('task');
 $taskZuhause1->name = "Fenster putzen";
-$taskZuhause1->duedate = "26.06.2020";
+$taskZuhause1->duedate = "2020-06-29T22:00:00.000Z";
 $taskZuhause1->description = "";
 $taskZuhause1->weight = 3;
 $taskZuhause1->state = 0;
 
 $taskZuhause2 = R::dispense('task');
 $taskZuhause2->name = "Auto putzen";
-$taskZuhause2->duedate = "04.07.2020";
+$taskZuhause2->duedate = "2020-06-29T22:00:00.000Z";
 $taskZuhause2->description = "";
 $taskZuhause2->weight = 1;
 $taskZuhause2->state = 0;
 
 $taskZuhause3 = R::dispense('task');
 $taskZuhause3->name = "Garten umgraben";
-$taskZuhause3->duedate = "04.07.2020";
+$taskZuhause3->duedate = "2020-07-02T22:00:00.000Z";
 $taskZuhause3->description = "Beet im Garten umgraben";
 $taskZuhause3->weight = 5;
 $taskZuhause3->state = 0;
