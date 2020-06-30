@@ -22,6 +22,10 @@ $app->setBasePath((function () {
     return '';
    })());
 
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
 //Test routes - to be removed
 $app->get('/', function (Request $request, Response $response,
 $args) {
