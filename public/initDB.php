@@ -79,7 +79,7 @@ $list2->xownTaskList[] = $taskZuhause3;
 $id = R::store($list);   
 $id2 = R::store($list2);                   
 
-//Ausgabe der erstellten Daten (to do)
+//Ausgabe der erstellten Daten
 
 echo "Folgende Beispieldaten wurden der Datenbank hinzugefügt:<br>";
 
